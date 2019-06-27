@@ -30,7 +30,7 @@
 
 modules:
   blazemeter:
-    token: 6f3d0d707a12e6b92aefc986:3603f0225481798d5b5116f14424640944fd47e7acd9675e5b27c428abc2ac1e02ae1b42  # API id and API secret joined with ':'
+    token: 6f3d0d707a12e6b92aefc986:7ddf78e19a2c8f56dcf11ab68fe2c22459c84ae31ca67f2470ee8af5414e28200927c2e0  # API id and API secret joined with ':'
 
     test: Test for Aran  # name for test to store reports
     project: Taurus  # name for project to store test, can be numeric project ID
