@@ -6,7 +6,7 @@ stages {
             checkout scm
         }
     }
-    stage('Build API Server') {
+    stage('Start MicroService') {
         steps {
             sh 'docker-compose -f docker-compose-mysql-4_1.yml up -d'
             timeout(5) {
@@ -25,17 +25,17 @@ stages {
             sleep 5
         }
     }
-   stage('Deploy API to Test') {
+   stage('Pubish API to Test') {
         steps {
             sh 'curl -X POST -d @swagger.json http://mag.gateway.day.apim.ca.com:8080/deployToPortal -H "Content-Type: application/json"'     
         }
     }
-    stage('Build Tests') {
+    stage('Build API Performance Tests') {
         steps {
             sh 'curl -X POST -d @swagger.json -H "Content-Type: application/json" http://mag.gateway.day.apim.ca.com:8080/buildBlazeTest > file.json'     
         }
     }
-    stage('Run Blazemeter Tests ') {
+    stage('Run API Performance Tests ') {
         steps {
            sh 'bzt file.json .bzt-rc'
         }
